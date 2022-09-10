@@ -22,11 +22,11 @@ int main(void)
 	{
 		printf("%s %d is %d %s\n", str, n, lastDigit, statement1);
 	}
-	else if (lastDigit < 5)
+	else if (lastDigit < 5 && lastDigit > 0)
 	{
 		printf("%s %d is %d %s\n", str, n, lastDigit, statement2);
 	}
-	else
+	else 
 	{
 		printf("%s %d is %d %s", str, n, lastDigit, statement3);
 	}
