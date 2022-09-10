@@ -3,7 +3,7 @@
 #include <time.h>
 /**
  * main - Entry point
- *
+ * Description: Get a random number, check its last digit and compare with 5
  * Return: 0 (Success)
  */
 int main(void)

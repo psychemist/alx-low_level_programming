@@ -3,7 +3,7 @@
 #include <time.h>
 /**
  * main - Entry point
- *
+ * Description: Get a random number and print if it is + or - or 0
  * Return: 0 (Success)
  */
 int main(void)
