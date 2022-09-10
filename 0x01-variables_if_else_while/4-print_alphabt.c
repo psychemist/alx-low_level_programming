@@ -8,13 +8,13 @@ int main(void)
 {
 	char aleph = 'a';
 
-	if (aleph != 'q' && aleph != 'e')
+	while (aleph <= 'z')
 	{
-		while (aleph <= 'z')
+		if (aleph != 'q' && aleph != 'e')
 		{
 			putchar(aleph);
-			aleph++;
 		}
+		aleph++;
 	}
 	putchar('\n');
 	return (0);
