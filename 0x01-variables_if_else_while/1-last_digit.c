@@ -26,9 +26,9 @@ int main(void)
 	{
 		printf("%s %d is %d %s\n", str, n, lastDigit, statement3);
 	}
-	else 
+	else
 	{
-		printf("%s %d is %d %s", str, n, lastDigit, statement2);
+		printf("%s %d is %d %s\n", str, n, lastDigit, statement2);
 	}
 	return (0);
 }
