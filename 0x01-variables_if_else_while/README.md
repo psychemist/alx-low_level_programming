@@ -14,4 +14,6 @@ This is my second C project repository
 - While Loop
 
 ### Bash Commands
+```
 - ascii
+```
