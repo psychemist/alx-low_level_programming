@@ -8,33 +8,24 @@
  */
 int main(void)
 {
-	int x;
-	int y;
-	int a;
-	int b;
-
-	for (x = '0'; x <= '9'; x++)
+	int i;
+	int j;
+	for (i = 0; i < 100; i++)
 	{
-		for (y = '0'; y <= '9'; y++)
+		for (j = 0; j < 100; j++)
 		{
-			for (a = x; a <= '9'; a++)
+			if (i < j)
 			{
-				for (b = y + 1; b <= '9'; b++)
+				putchar((i / 10) + 48);
+				putchar((i % 10) + 48);
+				putchar(' ');
+				putchar((j / 10) + 48);
+				putchar((j % 10) + 48);
+				if (i != 98 || j != 99)
 				{
-					putchar(x);
-					putchar(y);
+					putchar(',');
 					putchar(' ');
-					putchar(a);
-					putchar(b);
-
-					if (!((x == '9' && y == '8') &&
-					      (a == '9' && b == '9')))
-					{
-						putchar(',');
-						putchar(' ');
-					}
 				}
-				b = '0';
 			}
 		}
 	}
