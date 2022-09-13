@@ -1,6 +1,6 @@
 # C - Variables; If, Else, While
 
-This is my second C project repo
+This is my second C project repository
 
 ## Lessons learned
 - Data | Integer types
