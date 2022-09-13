@@ -14,7 +14,9 @@ This is my first C project in ALX SE School
 - The `sizeof` operator
 
 ### Bash Commands
+```
 - gcc
 - printf
 - puts
 - putchar
+```
