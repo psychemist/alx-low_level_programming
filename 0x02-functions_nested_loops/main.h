@@ -1,6 +1,3 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
-
 /*
  * Function prototypes
  */
@@ -17,5 +14,3 @@ void jack_bauer(void);
 void times_table(void);
 int add(int, int);
 void print_to_98(int n);
-
-#endif
