@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * fizzBuzz - Prints numbers 1- 100 followed by a new line
+ * main - Prints numbers 1- 100 followed by a new line
  * Description: Prints fizz for multiples of 3 and Buzz for multiples of five
  * Prints FizzBuzz for multiples of 3 and 5
  * Return: 0
