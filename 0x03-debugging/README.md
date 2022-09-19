@@ -1,5 +1,5 @@
 This is my C Debugging project task README
 
 ## Lessons
-- Debuuging
+- Debugging
 - Rubber Duck debugging
