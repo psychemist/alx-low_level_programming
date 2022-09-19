@@ -13,7 +13,7 @@ This is my first C project in ALX SE School
 - The `main` function
 - The `sizeof` operator
 
-### Bash Commands
+### C Commands
 ```
 - gcc
 - printf
