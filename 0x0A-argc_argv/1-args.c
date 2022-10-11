@@ -7,7 +7,7 @@
  */
 int main(int argc, char *argv[] __attribute__ ((unused)))
 {
-	// (void)argv -- also used to ignore unused variables
+	/* (void)argv -- also used to ignore unused variables */
 	printf("%d\n", argc);
 	return (0);
 }
