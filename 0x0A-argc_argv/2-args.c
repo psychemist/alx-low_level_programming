@@ -5,7 +5,7 @@
  * @argv: array of size argc
  * Return: 0 (Success)
  */
-int main(int argc, char * argv[])
+int main(int argc, char *argv[])
 {
 	int i;
 
@@ -13,6 +13,5 @@ int main(int argc, char * argv[])
 	{
 		printf("%s\n", argv[i]);
 	}
-	
 	return (0);
 }
