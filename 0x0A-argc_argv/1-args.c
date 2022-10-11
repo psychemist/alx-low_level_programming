@@ -8,6 +8,19 @@
 int main(int argc, char *argv[] __attribute__ ((unused)))
 {
 	/* (void)argv -- also used to ignore unused variables */
-	printf("%d\n", argc);
+	int i;
+	int sum;
+
+	if (argc > 1)
+	{
+		for (i = 1; i < argc; i++)
+		{
+			sum += 1;
+		}
+	}
+	else
+		sum = 0;
+
+	printf("%d\n", sum);
 	return (0);
 }
