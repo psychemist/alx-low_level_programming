@@ -38,16 +38,17 @@ char *argstostr(int ac, char **av)
 		len += (_strlen(av[i]) + 1);
 	len++;
 
-	args = malloc((len + 1) * sizeof(*args));
+	args = malloc(len * sizeof(*args));
 	if (args == NULL)
 		return (NULL);
 
 	/* assign each argument into new array */
-	for (i = 0; i < ac; i++)
+	for (i = 1; i < ac; i++)
 	{
 		for (j = 0; av[i][j]; j++)
 		{
-			args[k++] = av[i][j];
+			args[k] = av[i][j];
+			k++;
 		}
 		args[k++] = '\n';
 	}
