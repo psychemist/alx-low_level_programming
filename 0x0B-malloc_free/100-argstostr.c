@@ -38,7 +38,7 @@ char *argstostr(int ac, char **av)
 		len += _strlen(av[i]);
 
 	/* add space for new lines and null terminator */
-	len += ac;
+	len += (ac + 1);
 	args = malloc(len * sizeof(char));
 	if (args == NULL)
 		return (NULL);
@@ -53,6 +53,5 @@ char *argstostr(int ac, char **av)
 		}
 		args[k++] = '\n';
 	}
-	args[len] = '\0';
 	return (args);
 }
