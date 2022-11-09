@@ -39,7 +39,7 @@ char *argstostr(int ac, char **av)
 
 	/* add space for new lines and null terminator */
 	len += (ac + 1);
-	args = malloc(len * sizeof(args));
+	args = malloc(len * sizeof(*args));
 	if (args == NULL)
 		return (NULL);
 
