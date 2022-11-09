@@ -13,12 +13,12 @@ int **alloc_grid(int width, int height)
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
-	mesh = (int **)malloc(sizeof(int *) * height);
+	mesh = malloc(sizeof(int *) * height);
 	if (mesh == NULL)
 		return (NULL);
 	for (i = 0; i < height; i++)
 	{
-		mesh[i] = (int *)malloc(sizeof(int) * width);
+		mesh[i] = malloc(sizeof(int) * width);
 		if (mesh[i] == NULL)
 		{
 			for (i = 0; i < height; i++)
