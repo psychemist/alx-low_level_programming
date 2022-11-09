@@ -44,12 +44,11 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 
 	/* assign each argument into new array */
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; j < _strlen(av[i]); j++)
 		{
-			args[k] = av[i][j];
-			k++;
+			args[k++] = av[i][j];
 		}
 		args[k++] = '\n';
 	}
