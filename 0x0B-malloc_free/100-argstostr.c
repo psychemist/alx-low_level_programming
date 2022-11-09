@@ -34,23 +34,25 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 
 	/* find length of malloc */
-	for (i = 1; i < ac; i++)
-		len += (_strlen(av[i]) + 1);
-	len++;
+	for (i = 0; i < ac; i++)
+		len += _strlen(av[i]);
+
+	/* add space for new lines and null terminator */
+	len += (ac + 1);
 
 	args = malloc(len * sizeof(*args));
 	if (args == NULL)
 		return (NULL);
 
 	/* assign each argument into new array */
-	for (i = 1; i < ac; i++)
+	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j]; j++)
+		for (j = 0; j < _strlen(av[i]); j++)
 		{
-			args[k] = av[i][j];
-			k++;
+			args[k++] = av[i][j];
 		}
 		args[k++] = '\n';
 	}
+	args[len] = '\0';
 	return (args);
 }
