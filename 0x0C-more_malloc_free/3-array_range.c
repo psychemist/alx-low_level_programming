@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /**
  * array_range - Creates an array of integers
- * @min: mininum integer in range 
+ * @min: mininum integer in range
  * @max: maximum integer in range
  * Return: Pointer to the newly created array
  */
@@ -20,7 +20,7 @@ int *array_range(int min, int max)
 	if (buffer == NULL)
 		return (NULL);
 
-	for (i = 0; i <= max; i++)
+	for (i = 0; i <= len; i++)
 	{
 		buffer[i] = min;
 		min++;
