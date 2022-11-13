@@ -30,7 +30,7 @@ char *_strcpy(char *dest, char *src)
 
 	for (i = 0; src[i] != '\0'; i++)
 		dest[i] = src[i];
-        dest[i] = '\0';
+	dest[i] = '\0';
 
 	return (dest);
 }
@@ -53,7 +53,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	if (dog == NULL)
 		return (NULL);
-	
+
 	dog->age = age;
 
 	name_copy = malloc(_strlen(name) + 1);
