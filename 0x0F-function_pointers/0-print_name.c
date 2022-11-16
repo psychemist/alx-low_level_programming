@@ -1,4 +1,5 @@
 #include "function_pointers.h"
+#include <stdlib.h>
 /**
  * print_name - accepts a callback function tha prints a name
  * @name: string that is the name to be printed
@@ -7,5 +8,8 @@
  */
 void print_name(char *name, void (*f)(char *))
 {
-	f(name);
+	if (f == NULL)
+		return;
+	else
+		f(name);
 }
