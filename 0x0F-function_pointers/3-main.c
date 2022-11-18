@@ -13,10 +13,7 @@ int main(int argc, char *argv[])
 	int x, z;
 	char *y;
 	int num;
-
-	x = atoi(argv[1]);
-	y = argv[2];
-	z = atoi(argv[3]);
+	int (*func)(int, int);
 
 	if (argc != 4)
 	{
@@ -24,7 +21,12 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (!(*y == '+' || *y == '-' || *y == '*' || *y == '/' || *y == '%'))
+	x = atoi(argv[1]);
+	y = argv[2];
+	z = atoi(argv[3]);
+	func = (get_op_func)(y);
+
+	if (func == NULL)
 	{
 		printf("Error\n");
 		exit(99);
@@ -36,7 +38,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	num = (get_op_func(y))(x, z);
+	num = func(x, z);
 	printf("%d\n", num);
 
 	return (0);
