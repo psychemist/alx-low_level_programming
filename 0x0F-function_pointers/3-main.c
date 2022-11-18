@@ -3,12 +3,12 @@
 #include <stdlib.h>
 /**
  * main - entry point of operator functions
- * @argc: 
- * @argv: 
- * 
+ * @argc: number of arguments passed to main
+ * @argv: array of arguments passed to main
+ * Return: (0)
  */
 
-int main (int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int x, z;
 	char *y;
@@ -24,13 +24,13 @@ int main (int argc, char **argv)
 		exit(98);
 	}
 
-	if (!(*y == '+' || *y == '-'|| *y == '*' || *y == '/' || *y == '%'))
+	if (!(*y == '+' || *y == '-' || *y == '*' || *y == '/' || *y == '%'))
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	if ((y[0] == '/' || y[0] == '%') && (z == 0))
+	if ((*y == '/' || *y == '%') && (z == 0))
 	{
 		printf("Error\n");
 		exit(100);
