@@ -69,7 +69,7 @@ void print_all(const char * const format, ...)
 	va_start(args, format);
 
 	i = 0;
-	while (format[i] != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
 
 		j = 0;
@@ -79,11 +79,11 @@ void print_all(const char * const format, ...)
 			{
 				printf("%s", separator);
 				data[j].func(args);
+				/* change separator to handle last arg */
+				separator = ", ";
 			}
 			j++;
 		}
-		/* change separator to handle last arg */
-		separator = ", ";
 		i++;
 	}
 	va_end(args);
