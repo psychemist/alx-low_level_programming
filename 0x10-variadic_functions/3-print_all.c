@@ -20,26 +20,28 @@ void print_all(const char * const format, ...)
 		{
 		case 'c':		/* char */
 			c = (char) va_arg(args, int);
-			printf("%c, ", c);
-			break;
-		case 'i':		/* int */
-			i = va_arg(args, int);
-			printf("%d, ", i);
+			printf("%c", c);
 			break;
 		case 'f':		/* double */
 			f = va_arg(args, double);
-			printf("%f, ", f);
+			printf("%f", f);
+			break;
+		case 'i':		/* int */
+			i = va_arg(args, int);
+			printf("%d", i);
 			break;
 		case 's':		/* string */
 			s = va_arg(args, char *);
-			if (s == NULL)
+			if (s == NULL) 
 				printf("(nil)");
-			if (s != NULL)
-				printf("%s, ", s);
+			else
+				printf("%s", s);
 			break;
 		default:
 			break;
 		}
+		if (*(format + j + 1) != '\0')
+			printf(", ");
 		j++;
 	}
 	va_end(args);
