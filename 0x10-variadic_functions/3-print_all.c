@@ -3,25 +3,27 @@
 #include <stdarg.h>
 /**
  * print_char - prints a character to standard output
- * @va_list: stdarg data object that holds a list of variable arguments
+ * @list: stdarg data object that holds a list of variable arguments
  */
 void print_char(va_list list)
 {
+	/* cast self-promoting int to char */
 	printf("%c", (char) va_arg(list, int));
 }
 
 /**
  * print_float - prints a decimal number to standard output
- * @va_list: stdarg data object that holds a list of variable arguments
+ * @list: stdarg data object that holds a list of variable arguments
  */
 void print_float(va_list list)
 {
+	/* float promotes to double by default */
 	printf("%f", va_arg(list, double));
 }
 
 /**
  * print_int - prints an integral number to standard output
- * @va_list: stdarg data object that holds a list of variable arguments
+ * @list: stdarg data object that holds a list of variable arguments
  */
 void print_int(va_list list)
 {
@@ -30,13 +32,13 @@ void print_int(va_list list)
 
 /**
  * print_string - prints a string to stanard output
- * @va_list: stdarg data object that holds a list of variable arguments
+ * @list: stdarg data object that holds a list of variable arguments
  */
 void print_string(va_list list)
 {
 	char *s;
-	s = va_arg(list, char *);
 
+	s = va_arg(list, char *);
 	if (s == NULL)
 	{
 		printf("(nil)");
@@ -80,6 +82,7 @@ void print_all(const char * const format, ...)
 			}
 			j++;
 		}
+		/* change separator to handle last arg */
 		separator = ", ";
 		i++;
 	}
