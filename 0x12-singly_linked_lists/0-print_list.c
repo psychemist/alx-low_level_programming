@@ -15,12 +15,14 @@ size_t check_next(const list_t *li, unsigned int k)
 		return (0);
 
 	nxt = li->next;
-	++x;
-
-	check_next(nxt, x);
 
 	if (nxt == NULL)
 		return (x);
+	else
+		x += 1;
+
+	check_next(nxt, x);
+
 	return (x);
 }
 
