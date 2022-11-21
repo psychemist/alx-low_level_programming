@@ -14,8 +14,7 @@ unsigned int check_next(const list_t *li)
 
 	if (li->next == NULL)
 		return (1);
-	else
-		x++;
+	x++;
 	check_next(next);
 	return (x);
 }
@@ -31,6 +30,9 @@ size_t print_list(const list_t *h)
 	unsigned int i, j;
 	list_t *ptr;
 
+	if (h == NULL)
+		return (1);
+
 	s = h->str;
 	i = h->len;
 	ptr = h->next;
@@ -39,7 +41,11 @@ size_t print_list(const list_t *h)
 		printf("[0] (nil)\n");
 	else
 		printf("[%d] %s\n", i, s);
+	if (ptr == NULL)
+		return (1);
 	printf("[%d] %s\n", h->next->len, ptr->str);
+
+	print_list(ptr->next);
 
 	/* check if list has a valid next element */
 	j = check_next(h);
