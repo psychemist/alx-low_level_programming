@@ -16,7 +16,7 @@ unsigned int check_next(const list_t *li, unsigned int k)
 	if (nxt != NULL)
 		++x;
 	else
-		return (0);
+		return (x);
 	check_next(nxt, x);
 	return (x);
 }
