@@ -12,9 +12,11 @@ unsigned int check_next(const list_t *li)
 
 	next = li->next;
 
+	if (li == NULL)
+		x = 0;
 	if (li->next == NULL)
 		return (1);
-	x++;
+	++x;
 	check_next(next);
 	return (x);
 }
@@ -31,7 +33,7 @@ size_t print_list(const list_t *h)
 	list_t *ptr;
 
 	if (h == NULL)
-		return (1);
+		return (0);
 
 	s = h->str;
 	i = h->len;
