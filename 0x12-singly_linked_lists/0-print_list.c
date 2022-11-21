@@ -14,9 +14,8 @@ size_t check_next(const list_t *li, unsigned int k)
 		return (x);
 
 	check_next(li->next, x);
-	x += 1;
 
-	return (x);
+	return (x += 1);
 }
 
 /**
