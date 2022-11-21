@@ -9,8 +9,8 @@
 size_t check_next(const list_t *li, unsigned int k)
 {
 	unsigned int x = k;
-	
-	if (li-> next == NULL)
+
+	if (li->next == NULL)
 		return (x);
 
 	return ((check_next(li->next, x + 1)));
