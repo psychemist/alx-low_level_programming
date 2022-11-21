@@ -6,19 +6,20 @@
  * @k: number of existing nodes
  * Return: integer (number of nodes in singly linked list)
  */
-unsigned int check_next(const list_t *li, unsigned int k)
+size_t check_next(const list_t *li, unsigned int k)
 {
 	unsigned int x = k;
 	list_t *nxt;
 
+	if (li == NULL)
+		return (0);
+
 	nxt = li->next;
 
-	if (nxt != NULL)
-		++x;
-	else
-		return (x);
-	if (nxt->next != NULL)
-		check_next(nxt->next, x);
+	if (nxt == NULL)
+		return (1);
+	++x;
+	check_next(nxt->next, x);
 	return (x);
 }
 
@@ -30,7 +31,7 @@ unsigned int check_next(const list_t *li, unsigned int k)
 size_t print_list(const list_t *h)
 {
 	char *s;
-	unsigned int i, j, k = 1;
+	unsigned int i, j;
 	list_t *ptr;
 
 	if (h == NULL)
@@ -51,7 +52,7 @@ size_t print_list(const list_t *h)
 	print_list(ptr->next);
 
 	/* check if list has a valid next element */
-	j = check_next(h, k);
+	j = check_next(h, 1);
 
 	return (j);
 }
