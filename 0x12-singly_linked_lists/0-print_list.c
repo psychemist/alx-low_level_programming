@@ -13,10 +13,10 @@ unsigned int check_next(const list_t *li, unsigned int k)
 
 	nxt = li->next;
 
-	if (nxt == NULL)
-		return (0);
-	else
+	if (nxt != NULL)
 		++x;
+	else
+		return (0);
 	check_next(nxt, x);
 	return (x);
 }
