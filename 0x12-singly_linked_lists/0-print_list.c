@@ -8,16 +8,17 @@
 unsigned int check_next(const list_t *li)
 {
 	unsigned int x = 1;
-	list_t *next;
+	list_t *nxt;
 
-	next = li->next;
+	nxt = li->next;
 
 	if (li == NULL)
 		x = 0;
-	if (li->next == NULL)
-		return (1);
-	++x;
-	check_next(next);
+	if (nxt == NULL)
+		return (x);
+	if (nxt->next == NULL)
+		return (++x);
+	check_next(nxt);
 	return (x);
 }
 
