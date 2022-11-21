@@ -3,6 +3,7 @@
 /**
  * check_next - checks how many nodes are in a linked list
  * @li: head of linked list structure
+ * @k: number of existing nodes
  * Return: integer (number of nodes in singly linked list)
  */
 unsigned int check_next(const list_t *li, unsigned int k)
@@ -13,8 +14,9 @@ unsigned int check_next(const list_t *li, unsigned int k)
 	nxt = li->next;
 
 	if (nxt == NULL)
-		return (x);
-	++x;
+		return (0);
+	else
+		++x;
 	check_next(nxt, x);
 	return (x);
 }
