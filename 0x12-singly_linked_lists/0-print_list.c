@@ -8,7 +8,7 @@
  */
 size_t check_next(const list_t *li, unsigned int k)
 {
-	unsigned int x = k, sum = 0;
+	unsigned int x = k;
 	list_t *nxt;
 
 	if (li == NULL)
@@ -18,12 +18,10 @@ size_t check_next(const list_t *li, unsigned int k)
 
 	check_next(nxt->next, x);
 
-	if (nxt == NULL)
-		return (x);
-	x += 1;
-	sum += x;
+	if (nxt != NULL)
+		return (x += 1);
 
-	return (sum);
+	return (x);
 }
 
 /**
