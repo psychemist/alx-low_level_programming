@@ -1,7 +1,7 @@
 #include<stdio.h>
 /**
- * 
- * 
+ * tortue - prints a string before the main function is executed
+ * Return: nothing
  */
 void tortue(void) __attribute__ ((constructor));
 void tortue(void)
