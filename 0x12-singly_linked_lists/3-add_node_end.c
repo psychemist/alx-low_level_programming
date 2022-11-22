@@ -10,13 +10,14 @@
 int _strlen(const char *s)
 {
 	int i = 0;
+
 	while (s[i])
 		i++;
 	return (i);
 }
 
 /**
- * add_node - adds a new node to the beginning of a linked list
+ * add_node_end - adds a new node to the end of a linked list
  * @head: head node of the list
  * @str: pointer to a char [array]
  * Return: pointer to a list_t struct
