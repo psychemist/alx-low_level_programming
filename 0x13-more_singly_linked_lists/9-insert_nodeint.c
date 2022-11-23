@@ -40,7 +40,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	/* Assign data values to new node */
 	new_node->n = n;
-	new_node->next = NULL;
 
 	/* Traverse list to find its size */
 	last = *head;
@@ -60,7 +59,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	else if ((last == NULL) && (idx == 0))
 	{
 		new_node->next = last;
-		last->next = new_node;
+		last = new_node;
 		size++;
 	}
 	else
