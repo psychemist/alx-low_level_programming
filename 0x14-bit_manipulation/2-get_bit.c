@@ -7,9 +7,15 @@
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
-	unsigned int unit;
+	unsigned int unit, max_bits;
+
+	max_bits = sizeof(unsigned long int) * 8;
+
+	if (index > max_bits)
+		return (-1);
 
 	unit = n >> index;
+	/* or, unit = ((n >> index) & 1) => return (unit) */
 
 	return (unit & 1);
 }
