@@ -7,10 +7,14 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	*n |= (1 << index);
+	unsigned int max_bits;
 
-	if ((n != 0) && (*n >> index == 0))
+	max_bits = sizeof(unsigned long int) * 8;
+
+	if (index > max_bits)
 		return (-1);
+
+	*n |= (1 << index);
 
 	return (1);
 }
