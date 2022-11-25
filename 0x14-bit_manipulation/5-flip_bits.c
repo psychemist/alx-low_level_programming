@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * 
- * 
- *
+ * count_bits - counts the number of bits needed to flip a binary number
+ * @o: u_int number
+ * Return: integer (no. of flipped bits)
  */
-int check_bits(unsigned long int o)
+int count_bits(unsigned long int o)
 {
 	unsigned int count = 0;
 
@@ -20,7 +20,7 @@ int check_bits(unsigned long int o)
 }
 
 /**
- * flip_bits - calculates the number of bits to flip to get from one number to another
+ * flip_bits - calculates number of bits to flip from one number to another
  * @n: first number
  * @m: second number
  * Return: integer (no. of flipped bits)
@@ -32,7 +32,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	num = n ^ m;
 
-	bits = check_bits(num);
+	bits = count_bits(num);
 
 	return (bits);
 }
