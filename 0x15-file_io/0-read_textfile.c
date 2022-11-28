@@ -12,7 +12,7 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	ssize_t size, len;
+	ssize_t size, print, len;
 	char *buffer;
 
 	/* open */
@@ -21,31 +21,40 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	fd = open(filename, O_RDONLY, 0400);
-
 	if (fd == -1)
 		return (0);
 
-	/* read */
+	/* get file size and allocate memory */
 
 	size = lseek(fd, 0, SEEK_END);
-	lseek(fd, 0 , SEEK_SET);
+	lseek(fd, 0, SEEK_SET);
 
 	buffer = malloc(size + 1);
 	if (buffer == NULL)
 		return (0);
 
+	/* read */
+
 	len = read(fd, buffer, letters);
 	buffer[++size] = '\0';
-
-	if (fd == -1)
+	if (len == -1)
+	{
+		free(buffer);
+		close(fd);
 		return (0);
+	}
 
-	/* close */
+	/* write */
+
+	print = write(STDOUT_FILENO, buffer, len);
+	if (print == -1)
+	{
+		free(buffer);
+		close(fd);
+		return (0);
+	}
 
 	close(fd);
-
-	printf("%s", buffer);
-
 	free(buffer);
 
 	return (len);
