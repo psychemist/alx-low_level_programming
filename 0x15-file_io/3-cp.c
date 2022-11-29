@@ -92,7 +92,7 @@ int main(int ac, char *av[])
 			exit(98);
 		}
 
-		write_t = write(fd2, buff, 1024);
+		write_t = write(fd2, buff, read_t);
 		if (write_t == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", av[2]);
