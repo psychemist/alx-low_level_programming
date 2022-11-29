@@ -21,7 +21,7 @@ int __exit(int error, char *str, int fd)
 		exit(error);
 	case 100:
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
-		exit (error);
+		exit(error);
 	default:
 		return (0);
 	}
