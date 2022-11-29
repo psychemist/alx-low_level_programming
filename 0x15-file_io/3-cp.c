@@ -73,7 +73,7 @@ int main(int ac, char *av[])
 {
 	int fd1, fd2;
 	ssize_t read_t, write_t;
-	char *buff;
+	char *buff[1024];
 
 	if (ac != 3)
 	{
@@ -84,8 +84,6 @@ int main(int ac, char *av[])
 	fd1 = read_file(av[1]);
 	fd2 = write_file(av[2]);
 
-	buff = malloc(sizeof(char) * 1025);
-
 	while ((read_t = read(fd1, buff, 1024) != 0))
 	{
 		if (read_t == -1)
@@ -93,18 +91,15 @@ int main(int ac, char *av[])
 			dprintf(2, "Error: Can't read from file %s\n", av[1]);
 			exit(98);
 		}
-		buff[1025] = '\0';
 
 		write_t = write(fd2, buff, 1024);
 		if (write_t == -1)
 		{
-			close(fd1);
 			dprintf(2, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 	}
 
-	free(buff);
 	close_file(fd1);
 	close_file(fd2);
 
