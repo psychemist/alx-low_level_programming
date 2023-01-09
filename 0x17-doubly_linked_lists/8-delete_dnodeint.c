@@ -7,10 +7,11 @@
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *current = malloc(sizeof(dlistint_t));
+	unsigned int i;
+	dlistint_t *current;
 
 	if (*head == NULL)
-		return -1;
+		return (-1);
 
 	if (index == 0)
 	{
@@ -21,15 +22,20 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	}
 
 	current = *head;
-	while (index != 0)
-	{
-		index--;
-		current = current->next;
-	}
 
-	current->prev->next = current->next;
-	current->next->prev = current->prev;
-	free(current);
+	for (i = 0; i < index && current != NULL; i++)
+		current = current->next;
+
+	if (current == NULL)
+	{
+		return(-1);
+	}
+	else
+	{
+		current->prev->next = current->next;
+		current->next->prev = current->prev;
+		free(current);
+	}
 
 	return (1);
 }
