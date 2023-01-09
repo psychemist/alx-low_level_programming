@@ -1,8 +1,9 @@
 #include "lists.h"
 /**
- * insert_node - inserts node at a given position
+ * insert_dnode - inserts node at a given position
  * @tmp: pointer to node of doubly linked list
  * @n: data value of new node
+ * Return: address of inserted node
  */
 dlistint_t *insert_dnode(dlistint_t *tmp, int n)
 {
@@ -11,7 +12,7 @@ dlistint_t *insert_dnode(dlistint_t *tmp, int n)
 	new_node = malloc(sizeof(dlistint_t));
 	if (!new_node)
 		return (NULL);
-	
+
 	new_node->n = n;
 
 	new_node->prev = tmp->prev;
