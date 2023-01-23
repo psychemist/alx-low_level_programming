@@ -17,10 +17,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (node == NULL)
 		return (0);
 
-	k = strdup(key);
+	if (key != NULL)
+		k = strdup(key);
 	if (!k)
 	{
-		free(k);
+		free(node);
 		return (0);
 	}
 
@@ -28,7 +29,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!v)
 	{
 		free(k);
-		free(v);
+		free(node);
 		return (0);
 	}
 
@@ -41,6 +42,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[idx] == NULL)
 	{
 		ht->array[idx] = node;
+	}
+	else if (ht->array[idx]->key == key)
+	{
+		ht->array[idx]->value = v;
 	}
 	else
 	{
