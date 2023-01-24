@@ -1,17 +1,17 @@
 #include "hash_tables.h"
 /**
- * create_update_node - creates or updates a new or existing hash table node
+ * create_node - creates or updates a new or existing hash table node
  * @ht: a hash table implemented with separate chaining collision handling
  * @key: key at index of hash table
  * @value: value of key
  * @index: index of node in hash table array
  * Return: 1 (SUCCESS) or 0 (FAIL)
  */
-int create_update_node(hash_table_t *ht, const char *key, const char *value,
+int create_node(hash_table_t *ht, const char *key, const char *value,
 		unsigned long int index)
 {
 	char *k, *v;
-	hash_node_t *node, *current;
+	hash_node_t *node;
 
 	node = malloc(sizeof(hash_node_t));
 	if (node == NULL)
@@ -23,6 +23,7 @@ int create_update_node(hash_table_t *ht, const char *key, const char *value,
 		free(node);
 		return (0);
 	}
+
 	v = strdup(value);
 	if (!v)
 	{
@@ -34,20 +35,11 @@ int create_update_node(hash_table_t *ht, const char *key, const char *value,
 	node->key = k;
 	node->value = v;
 
-	current = ht->array[index];
-
-	if (current == NULL)
-	{
+	if (ht->array[index] == NULL)
 		node->next = NULL;
-		current = node;
-	}
-	else if (strcmp(current->key, key) == 0)
-		current->value = v;
 	else
-	{
 		node->next = ht->array[index];
-		current = node;
-	}
+	ht->array[index] = node;
 
 	return (1);
 }
@@ -62,12 +54,41 @@ int create_update_node(hash_table_t *ht, const char *key, const char *value,
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
+	char *v;
 	unsigned long int idx;
+	hash_node_t *node, *current;
 
 	if (ht == NULL || key == NULL)
 		return (0);
 
+
 	idx = key_index((unsigned char *)key, ht->size);
 
-	return (create_update_node(ht, key, value, idx));
+	node = malloc(sizeof(hash_node_t));
+	if (node == NULL)
+		return (0);
+
+	v = strdup(value);
+	if (!v)
+	{
+		free(node);
+		return (0);
+	}
+
+	if (ht->array[idx] != NULL)
+	{
+		current = ht->array[idx];
+	
+		while (current != NULL)
+		{
+			if (strcmp(current->key, key) == 0)
+        		{
+				current->value = v;
+            			return (1);
+        		}
+			current = current->next;
+		}
+	}
+
+	return (create_node(ht, key, value, idx));
 }
