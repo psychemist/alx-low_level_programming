@@ -1,35 +1,29 @@
 #include <stdio.h>
 /**
- ** main - Entry point
- * Description - Prints all possible combinations of two two-digit numbers
- * All numbers should be printed with two digits. 1 should be printed as 01
- * The combinations of numbers should be printed in ascending order.
+ * main - Entry point
+ * Description: Prints all possible different combinations of 2 2-digit numbers
+ * Numbers should be printed in ascending order, with two digits
  * Return: 0 (Success)
  */
 int main(void)
 {
-	int i, j;
-	int a, b, c, d;
+	int a, b;
 
-	for (i = 0; i < 100; i++)
+	for (a = 0; a < 100; a++)
 	{
-		a = i / 10;
-		b = i % 10;
-
-		for (j = 0; j < 100; j++)
+		for (b = 0; b < 100; b++)
 		{
-			c = j / 10;
-			d = j % 10;
-
-			if (a < c || (a == c && b < d))
+			if (a < b)
 			{
-				putchar(a + '0');
-				putchar(b + '0');
-				putchar(32);
-				putchar(c + '0');
-				putchar(d + '0');
+				putchar(a / 10 + '0');
+				putchar(a % 10 + '0');
 
-				if (!(a == 9 && b == 8))
+				putchar(32);
+
+				putchar(b / 10 + '0');
+				putchar(b % 10 + '0');
+
+				if (!(a == 98 && b == 99))
 				{
 					putchar(44);
 					putchar(32);
