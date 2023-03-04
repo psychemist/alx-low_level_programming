@@ -14,19 +14,15 @@ def island_perimeter(grid):
     """
     rows = len(grid)
     columns = len(grid[0])
-    count = 0
-
-    for line in grid:
-        for num in line:
-            if num == 1:
-                count += 4
+    islands = 0
 
     for row in range(rows):
         for col in range(columns):
             if grid[row][col] == 1:
-                if row + 1 < rows and grid[row - 1][col] == 1:
-                    count -= 2
-                if col + 1 < columns and grid[row][col - 1] == 1:
-                    count -= 2
+                islands += 4
+                if row + 1 < rows and grid[row + 1][col] == 1:
+                    islands -= 2
+                if col + 1 < columns and grid[row][col + 1] == 1:
+                    islands -= 2
 
-    return count
+    return islands
