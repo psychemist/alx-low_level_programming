@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+"""
+5-island perimeter module calculates perimeter of an island
+"""
+
+
+def island_perimeter(grid):
+    """
+    Returns:
+        (int): perimeter of the island described in grid
+
+    Args:
+        grid (matrix): list of list of integers
+    """
+    rows = len(grid)
+    columns = len(grid[0])
+    count = 0
+
+    for line in grid:
+        for num in line:
+            if num == 1:
+                count += 4
+
+    for row in range(rows):
+        for col in range(columns):
+            if grid[row][col] == 1:
+                if grid[row][col - 1] == 1:
+                    count -= 2
+                if grid[row - 1][col] == 1:
+                    count -= 2
+
+    return count
