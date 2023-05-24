@@ -13,6 +13,9 @@ int binary_search(int *array, size_t size, int value)
 	size_t l = 0;
 	size_t r = size - 1;
 
+	if (array == NULL)
+		return (-1);
+
 	while (l <= r)
 	{
 		size_t m = (l + r) / 2;
