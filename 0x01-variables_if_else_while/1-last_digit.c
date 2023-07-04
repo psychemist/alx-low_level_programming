@@ -8,20 +8,20 @@
  */
 int main(void)
 {
-	int n, x;
+	int n, digit;
 	char str1[] = "Last digit of";
 	char str2[] = "greater than 5";
 	char str3[] = "less than 6 and not 0";
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	x = n % 10;
+	digit = n % 10;
 
-	if (x == 0)
-		printf("%s %i is %d and is 0\n", str1, n, x);
-	else if (x > 5)
-		printf("%s %i is %d and is %s\n", str1, n, x, str2);
-	else if (x < 5)
-		printf("%s %i is %d and is %s\n", str1, n, x, str3);
+	if (digit == 0)
+		printf("%s %i is %d and is 0\n", str1, n, digit);
+	else if (digit > 5)
+		printf("%s %i is %d and is %s\n", str1, n, digit, str2);
+	else if (digit < 5)
+		printf("%s %i is %d and is %s\n", str1, n, digit, str3);
 	return (0);
 }
